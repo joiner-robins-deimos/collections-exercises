@@ -46,27 +46,28 @@ public class GroceryApp {
                     utensilsA.put("1", Knife);
                     utensilsA.put("2", Spoon);
                     utensilsA.put("3", Spatula);
-                    catagories utensils = new catagories("Hygiene", utensilsA);
+                    catagories utensils = new catagories("Utensils", utensilsA);
 
-                    HashMap<String, catagories> catagories = new HashMap<>();
-                    catagories.put("1", food);
-                    catagories.put("2", hygiene);
-                    catagories.put("3", utensils);
+                    HashMap<String, catagories> categories = new HashMap<>();
+                    categories.put("1", food);
+                    categories.put("2", hygiene);
+                    categories.put("3", utensils);
 
                     System.out.print("Would you like to add an item?");
                     input = sc.nextLine();
                     if (input.equalsIgnoreCase("n")){
                         break;
                     } else if (input.equalsIgnoreCase("y")){
-                        for (HashMap.Entry<String, catagories> item : catagories.entrySet()) {
+                        for (HashMap.Entry<String, catagories> item : categories.entrySet()) {
                             System.out.println(item.getKey() + " " + item.getValue().getName());
                         }
                         System.out.println("Select a catagory...");
                         input = sc.nextLine();
                             switch (input){
                                 case "1": {
-
-
+                                    for (HashMap.Entry<String, item> item : foodA.entrySet()) {
+                                        System.out.println(item.getKey() + " " + item.getValue().name);
+                                    }
                                 }
                                 case "2": {
 

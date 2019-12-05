@@ -15,6 +15,6 @@ public class catagories {
         return this.name;
     }
     public void showItems(){
-        this.contents.get("1").name;
+//        this.contents.get("1").name;
     }
 }
