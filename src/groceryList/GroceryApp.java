@@ -34,21 +34,21 @@ public class GroceryApp {
                     foodA.put("1", Apple);
                     foodA.put("2", Banana);
                     foodA.put("3", Jackfruit);
-                    catagories food = new catagories("Food", foodA);
+                    categories food = new categories("Food", foodA);
 
                     HashMap<String, item> hygieneA = new HashMap<>();
                     hygieneA.put("1", Toothpaste);
                     hygieneA.put("2", Shampoo);
                     hygieneA.put("3", HemorrhoidCream);
-                    catagories hygiene = new catagories("Hygiene", hygieneA);
+                    categories hygiene = new categories("Hygiene", hygieneA);
 
                     HashMap<String, item> utensilsA = new HashMap<>();
                     utensilsA.put("1", Knife);
                     utensilsA.put("2", Spoon);
                     utensilsA.put("3", Spatula);
-                    catagories utensils = new catagories("Utensils", utensilsA);
+                    categories utensils = new categories("Utensils", utensilsA);
 
-                    HashMap<String, catagories> categories = new HashMap<>();
+                    HashMap<String, categories> categories = new HashMap<>();
                     categories.put("1", food);
                     categories.put("2", hygiene);
                     categories.put("3", utensils);
@@ -58,10 +58,10 @@ public class GroceryApp {
                     if (input.equalsIgnoreCase("n")){
                         break;
                     } else if (input.equalsIgnoreCase("y")){
-                        for (HashMap.Entry<String, catagories> item : categories.entrySet()) {
+                        for (HashMap.Entry<String, categories> item : categories.entrySet()) {
                             System.out.println(item.getKey() + " " + item.getValue().getName());
                         }
-                        System.out.println("Select a catagory...");
+                        System.out.println("Select a category...");
                         input = sc.nextLine();
                             switch (input){
                                 case "1": {
@@ -85,15 +85,19 @@ public class GroceryApp {
                                         switch (input){
                                             case "1": {
                                                 cart.add(Apple);
+                                                break;
                                             }
                                             case "2": {
                                                 cart.add(Banana);
+                                                break;
                                             }
                                             case "3": {
                                                 cart.add(Jackfruit);
+                                                break;
                                             }
                                         }
                                     }
+                                    break;
                                 }
                                 case "2": {
                                     for (HashMap.Entry<String, item> item : hygieneA.entrySet()) {
@@ -116,15 +120,19 @@ public class GroceryApp {
                                         switch (input){
                                             case "1": {
                                                 cart.add(Toothpaste);
+                                                break;
                                             }
                                             case "2": {
                                                 cart.add(Shampoo);
+                                                break;
                                             }
                                             case "3": {
                                                 cart.add(HemorrhoidCream);
+                                                break;
                                             }
                                         }
                                     }
+                                    break;
                                 }
                                 case "3": {
                                     for (HashMap.Entry<String, item> item : utensilsA.entrySet()) {
@@ -147,22 +155,27 @@ public class GroceryApp {
                                         switch (input){
                                             case "1": {
                                                 cart.add(Knife);
+                                                break;
                                             }
                                             case "2": {
                                                 cart.add(Spoon);
+                                                break;
                                             }
                                             case "3": {
                                                 cart.add(Spatula);
+                                                break;
                                             }
                                         }
                                     }
+                                    break;
                                 }
                                 default: {
                                     System.out.println("unknown command");
+                                    break;
                                 }
                             }
                     } else {
-                        System.out.println("Unknown command");
+                        System.out.println("AHHH");
                     }
                 }
             } else {

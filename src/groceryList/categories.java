@@ -3,10 +3,10 @@ package groceryList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class catagories {
+public class categories {
     private String name;
     public HashMap<String, HashMap> contents;
-    public catagories(String n, HashMap items){
+    public categories(String n, HashMap items){
         this.name = n;
         this.contents = new HashMap<>();
         this.contents.putAll(items);
