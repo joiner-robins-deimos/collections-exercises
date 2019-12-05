@@ -20,15 +20,15 @@ public class GroceryApp {
                 while (true) {
                     ArrayList<item> cart = new ArrayList<>();
 
-                    item Apple = new item("food", "Apple", 0, 0.99);
-                    item Banana = new item("food", "Banana", 0, 1.99);
-                    item Jackfruit = new item("food", "Jackfruit", 0, 5.99);
-                    item Toothpaste = new item("hygiene", "Toothpaste", 0, 2.99);
-                    item Shampoo = new item("hygiene", "Shampoo", 0, 938746.99);
-                    item HemorrhoidCream = new item("hygiene", "Hemorrhoid-Cream", 0, 0.01);
-                    item Knife = new item("utensils", "Knife", 0, 9.99);
-                    item Spoon = new item("utensils", "Spoon", 0, 5.99);
-                    item Spatula = new item("utensils", "Spatula", 0, 10.98);
+                    item Apple = new item("food", "Apple", 0.99);
+                    item Banana = new item("food", "Banana", 1.99);
+                    item Jackfruit = new item("food", "Jackfruit", 5.99);
+                    item Toothpaste = new item("hygiene", "Toothpaste", 2.99);
+                    item Shampoo = new item("hygiene", "Shampoo", 938746.99);
+                    item HemorrhoidCream = new item("hygiene", "Hemorrhoid-Cream", 0.01);
+                    item Knife = new item("utensils", "Knife", 9.99);
+                    item Spoon = new item("utensils", "Spoon", 5.99);
+                    item Spatula = new item("utensils", "Spatula", 10.98);
 
                     HashMap<String, item> foodA = new HashMap<>();
                     foodA.put("1", Apple);
@@ -68,12 +68,94 @@ public class GroceryApp {
                                     for (HashMap.Entry<String, item> item : foodA.entrySet()) {
                                         System.out.println(item.getKey() + " " + item.getValue().name);
                                     }
+                                    System.out.println("Which item would you like?");
+                                    input = sc.nextLine();
+
+                                    int amount;
+                                    System.out.println("How many?");
+                                    while (true) {
+                                        try {
+                                            amount = sc.nextInt();
+                                            break;
+                                        } catch (Exception e) {
+                                            System.out.println("enter a NUMBER");
+                                        }
+                                    }
+                                    for (int i = 0; i < amount; i++){
+                                        switch (input){
+                                            case "1": {
+                                                cart.add(Apple);
+                                            }
+                                            case "2": {
+                                                cart.add(Banana);
+                                            }
+                                            case "3": {
+                                                cart.add(Jackfruit);
+                                            }
+                                        }
+                                    }
                                 }
                                 case "2": {
+                                    for (HashMap.Entry<String, item> item : hygieneA.entrySet()) {
+                                        System.out.println(item.getKey() + " " + item.getValue().name);
+                                    }
+                                    System.out.println("Which item would you like?");
+                                    input = sc.nextLine();
 
+                                    int amount;
+                                    System.out.println("How many?");
+                                    while (true) {
+                                        try {
+                                            amount = sc.nextInt();
+                                            break;
+                                        } catch (Exception e) {
+                                            System.out.println("enter a NUMBER");
+                                        }
+                                    }
+                                    for (int i = 0; i < amount; i++){
+                                        switch (input){
+                                            case "1": {
+                                                cart.add(Toothpaste);
+                                            }
+                                            case "2": {
+                                                cart.add(Shampoo);
+                                            }
+                                            case "3": {
+                                                cart.add(HemorrhoidCream);
+                                            }
+                                        }
+                                    }
                                 }
                                 case "3": {
+                                    for (HashMap.Entry<String, item> item : utensilsA.entrySet()) {
+                                        System.out.println(item.getKey() + " " + item.getValue().name);
+                                    }
+                                    System.out.println("Which item would you like?");
+                                    input = sc.nextLine();
 
+                                    int amount;
+                                    System.out.println("How many?");
+                                    while (true) {
+                                        try {
+                                            amount = sc.nextInt();
+                                            break;
+                                        } catch (Exception e) {
+                                            System.out.println("enter a NUMBER");
+                                        }
+                                    }
+                                    for (int i = 0; i < amount; i++){
+                                        switch (input){
+                                            case "1": {
+                                                cart.add(Knife);
+                                            }
+                                            case "2": {
+                                                cart.add(Spoon);
+                                            }
+                                            case "3": {
+                                                cart.add(Spatula);
+                                            }
+                                        }
+                                    }
                                 }
                                 default: {
                                     System.out.println("unknown command");
