@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class Student {
     private String name;
     private ArrayList<Integer> grades;
-    public void Student(String name){
+    public Student(String name){
         this.name = name;
-        grades.clear();
+//        grades.clear();
     }
     public String getName(){
         return this.name;
