@@ -39,19 +39,41 @@ public class GradesApplication {
         String input;
 
         while (true){
-            for (HashMap.Entry<String, Student> item : students.entrySet()) {
-                System.out.println(item.getKey());
+
+            System.out.println("Enter a command:\n1: See by Github username\n2: See all grades");
+            input = (String) sc.nextLine();
+            switch (input){
+                case "1":{
+                    for (HashMap.Entry<String, Student> item : students.entrySet()) {
+                        System.out.println(item.getKey());
+                    }
+                    System.out.println("Enter a Github username...");
+                    input = (String) sc.nextLine();
+                    if (students.containsKey(input)){
+                        System.out.println(students.get(input).getName());
+                        System.out.println("Average: " + students.get(input).getGradeAverage());
+                        students.get(input).getGrades();
+                    } else {
+                        System.out.println("error, user not found.");
+                    }
+                    break;
+                }
+                case "2": {
+                    for (HashMap.Entry<String, Student> item : students.entrySet()) {
+                        System.out.println(item.getKey());
+                        System.out.println(item.getValue().getName());
+                        item.getValue().getGrades();
+                        System.out.println(item.getValue().getGradeAverage());
+                        System.out.println("==========================");
+                    }
+                    break;
+                }
+                default: {
+                    System.out.println("Error, unknown command.");
+                    break;
+                }
             }
 
-            System.out.println("Which would you like to see?");
-            input = (String) sc.nextLine();
-            if (students.containsKey(input)){
-                System.out.println(students.get(input).getName());
-                System.out.println("Average: " + students.get(input).getGradeAverage());
-                students.get(input).getGrades();
-            } else {
-                System.out.println("error, user not found.");
-            }
 
             System.out.println("Continue? (Y / N)");
             input = (String) sc.nextLine();
