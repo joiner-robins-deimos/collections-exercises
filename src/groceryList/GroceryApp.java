@@ -7,18 +7,19 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class GroceryApp {
+
     public static void main(String[] args) {
+        ArrayList<item> cart = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-
-
         while (true){
             System.out.println("Would you like create a shopping list? (Y / N)");
             String input = sc.nextLine();
+            cart.clear();
             if (input.equalsIgnoreCase("n")){
                 break;
             } else if (input.equalsIgnoreCase("y")){
                 while (true) {
-                    ArrayList<item> cart = new ArrayList<>();
+
 
                     item Apple = new item("food", "Apple", 0.99);
                     item Banana = new item("food", "Banana", 1.99);
@@ -53,11 +54,106 @@ public class GroceryApp {
                     categories.put("2", hygiene);
                     categories.put("3", utensils);
 
-                    System.out.print("Would you like to add an item?");
+                    System.out.print("Would you like to add an item or finalize list?\n1: Add an item\n2: Finalize List");
                     input = sc.nextLine();
-                    if (input.equalsIgnoreCase("n")){
+                    if (input.equalsIgnoreCase("2")){
+                        double total = 0;
+                        int apples = 0;
+                        int bananas = 0;
+                        int jackfruits = 0;
+                        int toothpastes = 0;
+                        int shampoo = 0;
+                        int hems = 0;
+                        int knives = 0;
+                        int spoons = 0;
+                        int spatulats = 0;
+                        System.out.println(cart.size());
+                        for (int i = 0; i < cart.size() ; i++){
+                            switch (cart.get(i).name){
+                                case "Apple": {
+                                    apples++;
+                                    total += Apple.price;
+                                    break;
+                                }
+                                case "Banana":{
+                                    bananas++;
+                                    total += Banana.price;
+                                    break;
+                                }
+                                case "Jackfruit":{
+                                    jackfruits++;
+                                    total += Jackfruit.price;
+                                    break;
+                                }
+                                case "Toothpaste":{
+                                    toothpastes++;
+                                    total += Toothpaste.price;
+                                    break;
+                                }
+                                case "shampoo":{
+                                    shampoo++;
+                                    total += Shampoo.price;
+                                    break;
+                                }
+                                case "Hemorrhoid-Cream":{
+                                    hems++;
+                                    total += HemorrhoidCream.price;
+                                    break;
+                                }
+                                case "Knife":{
+                                    knives++;
+                                    total += Knife.price;
+                                    break;
+                                }
+                                case "Spoon":{
+                                    spoons++;
+                                    total += Spoon.price;
+                                    break;
+                                }
+                                case "Spatula": {
+                                    spatulats++;
+                                    total += Spatula.price;
+                                    break;
+                                }
+                            }
+                        }
+
+                        System.out.println("Food: ");
+                        if (apples > 0){
+                            System.out.println("Apples: " + apples);
+                        }
+                        if (bananas > 0){
+                            System.out.println("Bananas: " + bananas);
+                        }
+                        if (jackfruits > 0){
+                            System.out.println("Jackfruit: " + jackfruits);
+                        }
+                        System.out.println("Hygiene: ");
+                        if (hems > 0){
+                            System.out.println("Preparation H: " + hems);
+                        }
+                        if (shampoo > 0){
+                            System.out.println("Shampoo: " + shampoo);
+                        }
+                        if (toothpastes > 0){
+                            System.out.println("Toothpaste: " + toothpastes);
+                        }
+
+                        System.out.println("Utensils: ");
+                        if (knives > 0){
+                            System.out.println("Knives: " + knives);
+                        }
+                        if (spatulats > 0){
+                            System.out.println("Spatulas: " + spatulats);
+                        }
+                        if (spoons > 0){
+                            System.out.println("Spoons: " + spoons);
+                        }
+                        System.out.printf("Total price: $ %.2f%n", total);
+
+
                         break;
-                    } else if (input.equalsIgnoreCase("y")){
+                    } else if (input.equalsIgnoreCase("1")){
                         for (HashMap.Entry<String, categories> item : categories.entrySet()) {
                             System.out.println(item.getKey() + " " + item.getValue().getName());
                         }
@@ -76,6 +172,7 @@ public class GroceryApp {
                                     while (true) {
                                         try {
                                             amount = sc.nextInt();
+                                            sc.nextLine();
                                             break;
                                         } catch (Exception e) {
                                             System.out.println("enter a NUMBER");
@@ -85,6 +182,7 @@ public class GroceryApp {
                                         switch (input){
                                             case "1": {
                                                 cart.add(Apple);
+                                                System.out.println(cart.size());
                                                 break;
                                             }
                                             case "2": {
@@ -111,6 +209,7 @@ public class GroceryApp {
                                     while (true) {
                                         try {
                                             amount = sc.nextInt();
+                                            sc.nextLine();
                                             break;
                                         } catch (Exception e) {
                                             System.out.println("enter a NUMBER");
@@ -146,6 +245,7 @@ public class GroceryApp {
                                     while (true) {
                                         try {
                                             amount = sc.nextInt();
+                                            sc.nextLine();
                                             break;
                                         } catch (Exception e) {
                                             System.out.println("enter a NUMBER");
@@ -175,7 +275,7 @@ public class GroceryApp {
                                 }
                             }
                     } else {
-                        System.out.println("AHHH");
+                        System.out.println("Unknown command");
                     }
                 }
             } else {
